@@ -8,7 +8,9 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">CrackSeal Pro</h3>
+            <h3 className="text-xl font-bold mb-4">
+              Precise Surveyors Limited
+            </h3>
             <p className="text-gray-400 mb-4">
               Professional commercial crack sealing services to protect and
               extend the life of your asphalt investments.
@@ -109,7 +111,7 @@ const Footer: React.FC = () => {
                 href="mailto:info@cracksealpro.com"
                 className="hover:text-white transition-colors"
               >
-                info@cracksealpro.com
+                admin@precisesurveyors.co.nz
               </a>
             </address>
           </div>
@@ -119,7 +121,7 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} CrackSeal Pro. All rights reserved.
+            &copy; {currentYear} Precise Surveyors Limited. All rights reserved.
           </p>
 
           <div className="flex space-x-6">

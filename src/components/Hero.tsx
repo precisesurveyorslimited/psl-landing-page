@@ -14,11 +14,11 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-20">
+      <div className="container mx-auto px-6 md:px-4 relative z-20">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white animate-fade-in">
             Professional Commercial{" "}
-            <span className="text-yellow-400">Crack Sealing</span> Solutions
+            <span className="text-yellow-500">Crack Sealing</span> Solutions
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200 animate-slide-up">
             Extend the life of your commercial asphalt with expert crack sealing

@@ -1,13 +1,7 @@
 import { useEffect } from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Services from "./components/Services";
-import Process from "./components/Process";
-import Projects from "./components/Projects";
-import Testimonials from "./components/Testimonials";
-import CTA from "./components/CTA";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Gallery from "./pages/Gallery";
+import Index from "./pages/Index";
 
 function App() {
   useEffect(() => {
@@ -39,17 +33,14 @@ function App() {
   }, []);
 
   return (
-    <div className="font-sans text-gray-900">
-      <Header />
-      <Hero />
-      <Services />
-      <Process />
-      <Projects />
-      <Testimonials />
-      <CTA />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <div className="font-sans text-gray-900">
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/gallery" element={<Gallery />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

@@ -1,227 +1,244 @@
-import React from "react";
-import { Phone, Mail, MapPin, Clock, Building2, Send } from "lucide-react";
+import React, { useState } from "react";
+import { Phone, Mail, Info, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const validate = () => {
+    const newErrors = { name: "", email: "", message: "" };
+    if (!formData.name) newErrors.name = "Name is required.";
+    if (!formData.email) {
+      newErrors.email = "Email is required.";
+    } else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(formData.email)) {
+      newErrors.email = "Email is not valid.";
+    }
+    if (!formData.message) newErrors.message = "Message is required.";
+    setErrors(newErrors);
+    console.log("Validation errors:", newErrors);
+    return !newErrors.name && !newErrors.email && !newErrors.message;
+  };
+
+  const isFormValid = () => {
+    return (
+      formData.name &&
+      formData.email &&
+      /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(formData.email) &&
+      formData.message
+    );
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validate()) {
+      const subject = encodeURIComponent("Contact Form Submission");
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nMessage: ${formData.message}`
+      );
+      const mailtoLink = `mailto:admin@precisesurveyors.co.nz?subject=${subject}&body=${body}`;
+      window.location.href = mailtoLink;
+    }
+  };
+
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Contact Us
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to protect your commercial property with professional crack
-            sealing? Get in touch for a free assessment and quote.
-          </p>
+    <motion.section
+      id="contact"
+      className="min-h-screen bg-cover bg-center py-16 md:py-20 flex flex-col items-center justify-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="container mx-auto px-6 md:px-4">
+        <span className="px-5 py-2.5 mb-T4 bg-gradient-to-r from-amber-50 to-yellow-100 text-amber-700 rounded-full text-sm font-semibold shadow-sm border border-yellow-400">
+          Contact Us
+        </span>
+        <h2 className="text-4xl font-extrabold mb-4 mt-8">
+          Get in touch today
+        </h2>
+        <p className="mb-8">
+          We love questions and feedback – and we're always happy to help! Here
+          are some ways to contact us.
+        </p>
+
+        <div className="bg-yellow-500 rounded-2xl p-4 text-white">
+          <div className="flex flex-col md:flex-row gap-8 items-start">
+            <div className="flex items-start space-x-4">
+              <div className="bg-white/90 rounded-xl p-3 w-12 h-12 flex items-center justify-center">
+                <Phone className="w-5 h-5 text-yellow-600" />
+              </div>
+              <div>
+                <p className="font-medium text-black">Phone</p>
+                <a
+                  href="tel:+6491234567"
+                  className="text-yellow-900 hover:text-white transition-colors"
+                >
+                  +64 (09) 123 4567
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="bg-white/90 rounded-xl p-3 w-12 h-12 flex items-center justify-center">
+                <Mail className="w-5 h-5 text-yellow-600" />
+              </div>
+              <div>
+                <p className="font-medium text-black">Email</p>
+                <a
+                  href="mailto:admin@precisesurveyors.co.nz"
+                  className="text-yellow-900 hover:text-white transition-colors break-all"
+                >
+                  admin@precisesurveyors.co.nz
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="bg-white/90 rounded-xl p-3 w-12 h-12 flex items-center justify-center">
+                <MapPin className="w-5 h-5 text-yellow-600" />
+              </div>
+              <div>
+                <p className="font-medium text-black">Location</p>
+                <p className="text-yellow-900">
+                  123 Asphalt Road,Auckland, New Zealand
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
-            <form className="bg-white p-8 rounded-2xl shadow-lg">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="group">
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all duration-300"
-                    placeholder="John Smith"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="company"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all duration-300"
-                    placeholder="Your Company, Inc."
-                    required
-                  />
-                </div>
-              </div>
+        <hr
+          className="w-full my-8 border-0"
+          style={{
+            height: "1px",
+            background:
+              "linear-gradient(to right, transparent, rgba(255, 223, 0, 0.5), transparent)",
+          }}
+        />
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all duration-300"
-                    placeholder="john@example.com"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all duration-300"
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
-              </div>
-
-              <div className="mb-6">
+        <div className="w-full">
+          <form
+            className="space-y-6"
+            onSubmit={handleSubmit}
+            aria-label="Contact form"
+          >
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="w-full md:w-1/2">
                 <label
-                  htmlFor="property"
+                  htmlFor="name"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  Property Type
+                  Full Name
                 </label>
-                <div className="relative">
-                  <select
-                    id="property"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all duration-300 appearance-none bg-white"
-                    required
-                  >
-                    <option value="">Select Property Type</option>
-                    <option value="office">Office Complex</option>
-                    <option value="retail">Retail Center</option>
-                    <option value="industrial">Industrial Facility</option>
-                    <option value="medical">Medical Facility</option>
-                    <option value="education">Educational Institution</option>
-                    <option value="hospitality">Hotel/Hospitality</option>
-                    <option value="other">Other Commercial</option>
-                  </select>
-                  <Building2
-                    size={20}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
-                  />
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Project Details
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all duration-300 resize-none"
-                  placeholder="Tell us about your property and crack sealing needs"
-                  required
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center group shadow-lg"
-              >
-                <span>Request Free Quote</span>
-                <Send
-                  size={20}
-                  className="ml-2 transform group-hover:translate-x-1 transition-transform"
+                <input
+                  type="text"
+                  id="name"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  aria-required="true"
                 />
-              </button>
-            </form>
-          </div>
-
-          <div className="space-y-8">
-            <div className="bg-gradient-to-br from-blue-900 to-blue-700 text-white p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-bold mb-8">Get In Touch</h3>
-
-              <div className="space-y-6">
-                <a href="tel:+15551234567" className="flex items-start group">
-                  <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors">
-                    <Phone size={24} className="text-yellow-200" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Phone</p>
-                    <p className="text-yellow-200 group-hover:text-white transition-colors">
-                      (555) 123-4567
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href="mailto:info@cracksealpro.com"
-                  className="flex items-start group"
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1 flex items-center">
+                    <Info size={16} className="mr-1" />
+                    {errors.name}
+                  </p>
+                )}
+              </div>
+              <div className="w-full md:w-1/2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors">
-                    <Mail size={24} className="text-yellow-200" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Email</p>
-                    <p className="text-yellow-200 group-hover:text-white transition-colors">
-                      info@cracksealpro.com
-                    </p>
-                  </div>
-                </a>
-
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mr-4">
-                    <MapPin size={24} className="text-yellow-200" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Address</p>
-                    <p className="text-yellow-200">
-                      123 Industrial Avenue, Suite 200
-                      <br />
-                      Anytown, ST 12345
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mr-4">
-                    <Clock size={24} className="text-yellow-200" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Business Hours</p>
-                    <p className="text-yellow-200">
-                      Monday - Friday: 7:00 AM - 5:00 PM
-                      <br />
-                      Weekend: By appointment
-                    </p>
-                  </div>
-                </div>
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300"
+                  placeholder="Your email address"
+                  value={formData.email}
+                  onChange={handleChange}
+                  aria-required="true"
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1 flex items-center">
+                    <Info size={16} className="mr-1" />
+                    {errors.email}
+                  </p>
+                )}
+              </div>
+              <div className="w-full md:w-1/2">
+                <label
+                  htmlFor="company"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Company (optional)
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300"
+                  placeholder="Company name"
+                  value={formData.company}
+                  onChange={handleChange}
+                />
               </div>
             </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                Service Area
-              </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                We provide commercial crack sealing services throughout the
-                metro area and surrounding counties. Contact us to confirm we
-                service your location.
-              </p>
-              <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden group hover:shadow-lg transition-all duration-300">
-                <div className="w-full h-full flex items-center justify-center text-gray-400 group-hover:text-gray-600 transition-colors">
-                  <MapPin size={48} />
-                </div>
-              </div>
+            <div>
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Leave us a message
+              </label>
+              <textarea
+                id="message"
+                rows={4}
+                className="w-full px-4 py-3 rounded-xl border border-gray-300"
+                placeholder="Write your message here..."
+                value={formData.message}
+                onChange={handleChange}
+                aria-required="true"
+              ></textarea>
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1 flex items-center">
+                  <Info size={16} className="mr-1" />
+                  {errors.message}
+                </p>
+              )}
             </div>
-          </div>
+            <button
+              type="submit"
+              className={`w-full group bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-4 px-8 rounded-full text-center flex items-center justify-center ${
+                !isFormValid() ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={!isFormValid()}
+            >
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

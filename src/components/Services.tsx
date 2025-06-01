@@ -26,8 +26,9 @@ const Services: React.FC = () => {
   return (
     <motion.section
       ref={sectionRef}
-      className="py-32 relative overflow-hidden"
+      className="py-16 md:py-32 relative overflow-hidden"
       style={{ opacity, y }}
+      id="services"
     >
       {/* Background elements */}
       <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-amber-50 to-transparent" />
@@ -38,10 +39,10 @@ const Services: React.FC = () => {
       <div className="absolute top-1/3 -left-24 w-72 h-72 bg-amber-500 rounded-full opacity-5 blur-3xl" />
 
       {/* Content container */}
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto px-6 md:px-4 relative">
         {/* Services header */}
         <motion.div
-          className="text-center mb-24"
+          className="text-left md:text-center mb-8 md:mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -50,26 +51,20 @@ const Services: React.FC = () => {
           }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.div
-            className="inline-block mb-4"
-            whileHover={{ y: -5 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <span className="px-5 py-2.5 bg-gradient-to-r from-amber-50 to-yellow-100 text-amber-700 rounded-full text-sm font-semibold shadow-sm border border-amber-100/60">
-              Our Services
-            </span>
-          </motion.div>
+          <span className="px-5 py-2.5 mb-4 bg-gradient-to-r from-amber-50 to-yellow-100 text-amber-700 rounded-full text-sm font-semibold shadow-sm border border-yellow-400">
+            Our Services
+          </span>
 
-          <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold mb-8 leading-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-yellow-600">
-              Commercial Crack Sealing
+          <h2 className="text-3xl md:text-5xl font-bold my-8 leading-tight">
+            <span className="block bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent leading-[1.2]">
+              Crack Sealing
             </span>
-            <span className="block mt-2 text-gray-900">
+            <span className="block mb-2 text-gray-900">
               that stands the test of time
             </span>
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Protect your commercial property investment with professional crack
             sealing that prevents water infiltration and extends pavement life.
           </p>
