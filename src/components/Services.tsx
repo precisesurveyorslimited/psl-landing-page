@@ -65,8 +65,9 @@ const Services: React.FC = () => {
           </h2>
 
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Protect your commercial property investment with professional crack
-            sealing that prevents water infiltration and extends pavement life.
+            Protect your roadways, driveways and parking lots with professional
+            crack sealing that prevents water infiltration and extends pavement
+            life.
           </p>
         </motion.div>
 

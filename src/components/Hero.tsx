@@ -9,20 +9,21 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40 z-10"></div>
         <img
           src="/machine.jpeg"
-          alt="Commercial Parking Lot"
+          alt="Commercial and Residential Parking Lot"
           className="w-full h-full object-cover"
         />
       </div>
 
       <div className="container mx-auto px-6 md:px-4 relative z-20">
         <div className="max-w-3xl">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white animate-fade-in">
-            Professional Commercial{" "}
-            <span className="text-yellow-500">Crack Sealing</span> Solutions
+          <h1 className="text-5xl md:text-5xl lg:text-7xl font-bold leading-tight mb-6 text-white animate-fade-in">
+            Professional <span className="text-yellow-500">Crack Sealing</span>{" "}
+            Solutions
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200 animate-slide-up">
-            Extend the life of your commercial asphalt with expert crack sealing
-            services. Prevent water damage and save on costly repairs.
+          <p className="text-xl md:text-xl mb-8 text-gray-200 animate-slide-up">
+            Extend the life of your commercial and residential asphalt with
+            expert crack sealing services. Prevent water damage and save on
+            costly repairs.
           </p>
           <div
             className="flex flex-col sm:flex-row gap-4 animate-slide-up"

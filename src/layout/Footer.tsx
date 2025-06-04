@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -12,11 +13,12 @@ const Footer: React.FC = () => {
               Precise Surveyors Limited
             </h3>
             <p className="text-gray-400 mb-4">
-              Professional commercial crack sealing services to protect and
-              extend the life of your asphalt investments.
+              Professional commercial and residential crack sealing services to
+              protect and extend the life of your asphalt investments.
             </p>
             <p className="text-gray-400">
-              Licensed, bonded, and insured for commercial projects.
+              Licensed, bonded, and insured for commercial and residential
+              projects.
             </p>
           </div>
 
@@ -28,7 +30,7 @@ const Footer: React.FC = () => {
                   href="#services"
                   className="hover:text-white transition-colors"
                 >
-                  Commercial Crack Sealing
+                  Commercial and Residential Crack Sealing
                 </a>
               </li>
               <li>
@@ -62,33 +64,20 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#projects"
+                <Link
+                  to="/gallery"
                   className="hover:text-white transition-colors"
                 >
-                  Our Projects
-                </a>
+                  Gallery
+                </Link>
               </li>
               <li>
-                <a
-                  href="#testimonials"
-                  className="hover:text-white transition-colors"
-                >
-                  Testimonials
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
+                <Link
+                  to="/#contact"
                   className="hover:text-white transition-colors"
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -96,15 +85,13 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <address className="not-italic text-gray-400">
-              123 Industrial Avenue, Suite 200
-              <br />
-              Anytown, ST 12345
+              193 Henderson Valley Road, Henderson, Auckland 0612
               <br />
               <a
                 href="tel:+15551234567"
                 className="hover:text-white transition-colors"
               >
-                (555) 123-4567
+                +64 273747693
               </a>
               <br />
               <a

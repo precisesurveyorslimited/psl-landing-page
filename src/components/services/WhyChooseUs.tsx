@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const WhyChooseUs: React.FC = () => {
   const benefits = [
     "Licensed and certified crack sealing specialists",
-    "Advanced hot-applied sealant technology",
+    "Advanced hot-applied sealant technology with polymer modified bitumen",
     "Strict quality control procedures",
     "Comprehensive pavement assessment",
     "Premium grade materials and equipment",
@@ -74,16 +74,17 @@ const WhyChooseUs: React.FC = () => {
             transition={{ duration: 0.4, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            With years of experience in commercial crack sealing, we've built
-            our reputation on delivering exceptional quality and reliability.
-            Our team combines advanced hot-applied sealant technology with
-            proven application techniques to protect your pavement investment
-            and prevent water damage.
+            With years of experience in commercial and residential crack
+            sealing, we've built our reputation on delivering exceptional
+            quality and reliability. Our team combines advanced hot-applied
+            sealant technology with polymer modified bitumen, proven application
+            techniques to protect your pavement investment and prevent water
+            damage.
           </motion.p>
 
           {/* Benefits list */}
           <motion.ul
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-3"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"

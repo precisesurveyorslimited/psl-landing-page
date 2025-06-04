@@ -90,7 +90,7 @@ const Contact: React.FC = () => {
                   href="tel:+6491234567"
                   className="text-yellow-900 hover:text-white transition-colors"
                 >
-                  +64 (09) 123 4567
+                  +64 273747693
                 </a>
               </div>
             </div>
@@ -117,7 +117,7 @@ const Contact: React.FC = () => {
               <div>
                 <p className="font-medium text-black">Location</p>
                 <p className="text-yellow-900">
-                  123 Asphalt Road,Auckland, New Zealand
+                  193 Henderson Valley Road, Henderson, Auckland 0612
                 </p>
               </div>
             </div>

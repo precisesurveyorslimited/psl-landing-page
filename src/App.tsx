@@ -6,7 +6,7 @@ import Index from "./pages/Index";
 function App() {
   useEffect(() => {
     document.title =
-      "Precise Surveyors Limited | Commercial Crack Sealing Services";
+      "Precise Surveyors Limited | Commercial and Residential Crack Sealing Services";
 
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", (e) => {

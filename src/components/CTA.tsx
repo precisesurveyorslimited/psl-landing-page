@@ -11,8 +11,8 @@ const CTA: React.FC = () => {
               Ready to Protect Your Pavement?
             </h2>
             <p className="text-md text-yellow-900">
-              Schedule your free commercial property assessment today and extend
-              the life of your asphalt.
+              Schedule your free commercial and residential property assessment
+              today and extend the life of your asphalt.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
