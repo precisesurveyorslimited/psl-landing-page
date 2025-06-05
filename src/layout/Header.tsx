@@ -89,7 +89,7 @@ const Header: React.FC<{ isHome?: boolean }> = ({ isHome = false }) => {
               Contact Us
             </a>
             <a
-              href="tel:+15551234567"
+              href="tel:+64273747693"
               className={`hover:bg-yellow-600 text-black px-6 py-3 font-medium rounded-full transition-all duration-300 transform hover:scale-105 flex items-center ${
                 isHome
                   ? isScrolled
@@ -144,7 +144,7 @@ const Header: React.FC<{ isHome?: boolean }> = ({ isHome = false }) => {
               Contact Us
             </Link>
             <a
-              href="tel:+15551234567"
+              href="tel:+64273747693"
               className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 font-medium rounded-full transition-all duration-300 flex items-center justify-center"
             >
               <PhoneIcon className="mr-1 text-gray-800" />

@@ -17,7 +17,7 @@ const CTA: React.FC = () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="tel:+15551234567"
+              href="tel:+64273747693"
               className="bg-white hover:bg-gray-100 text-yellow-900 font-medium py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center"
             >
               <Phone size={20} className="mr-2" />
