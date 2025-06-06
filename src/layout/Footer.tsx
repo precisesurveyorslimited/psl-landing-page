@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
                   href="#services"
                   className="hover:text-white transition-colors"
                 >
-                  Commercial and Residential Crack Sealing
+                  Commercial and Residential Asphalt Crack Sealing
                 </a>
               </li>
               <li>
@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
                   href="#services"
                   className="hover:text-white transition-colors"
                 >
-                  Preventative Maintenance
+                  Commercial and Residential Concrete Joints and Crack Sealing
                 </a>
               </li>
               <li>
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
                   href="#services"
                   className="hover:text-white transition-colors"
                 >
-                  Pavement Assessment
+                  Bridge Joint Maintenance
                 </a>
               </li>
               <li>
@@ -54,7 +54,15 @@ const Footer: React.FC = () => {
                   href="#services"
                   className="hover:text-white transition-colors"
                 >
-                  Maintenance Planning
+                  Waterproof Membrane
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  className="hover:text-white transition-colors"
+                >
+                  Pavement Inspection and Assessment
                 </a>
               </li>
             </ul>
